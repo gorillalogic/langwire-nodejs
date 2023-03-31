@@ -3,6 +3,39 @@
 
 <body>
     <%- include('../shared/navigation.ejs') %>
-    <h1><%= pageTitle %></h1>
+    <h1>
+    <%= pageTitle %>
+    </h1>
+    <div>
+        <% queries.forEach(query=> { %>
+            <div>
+                <div>
+                    <label>
+                        <%= query.uuid %>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <%= query.updated_at %>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <button>Delete</button>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <label>
+                    <%= query.output_conll %>
+                </label>
+            </div>
+            <div>
+                <button>Show Grammer Table</button>
+                <button>Show Graph</button>
+                <button>Show Simplified</button>
+            </div>
+        <% }); %>
+    </div>
 
 <%- include('../shared/end.ejs') %>
