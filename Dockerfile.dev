@@ -1,0 +1,11 @@
+FROM node:18
+
+WORKDIR /app/langwire-nodejs
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+CMD NODE_ENV=production npm run start
