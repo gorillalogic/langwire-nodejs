@@ -1,0 +1,43 @@
+<%- include('../shared/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../shared/navigation.ejs') %>
+    <h1>
+    <%= pageTitle %>
+    </h1>
+    <div class="">
+        <% queries.forEach(query=> { %>
+            <div clas="flex flex-row w-full">
+                <div class="flex flex-row w-full">
+                    <div class="flex flex-col">
+                        <label>
+                            <%= query.uuid %>
+                        </label>
+                    </div>
+                    <div class="flex flex-col">
+                        <label>
+                            <%= query.updated_at %>
+                        </label>
+                    </div>
+                    <div class="flex flex-col">
+                        <label>
+                            <button>Delete</button>
+                        </label>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <label>
+                        <%= query.output_conll %>
+                    </label>
+                </div>
+                <div class="flex flex-row">
+                    <button>Show Grammer Table</button>
+                    <button>Show Graph</button>
+                    <button>Show Simplified</button>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<%- include('../shared/end.ejs') %>

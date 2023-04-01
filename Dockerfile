@@ -14,4 +14,4 @@ RUN npm install --only=production
 COPY --from=0 /app/langwire-nodejs/build .
 EXPOSE 3000
 ENV NODE_OPTIONS '--experimental-specifier-resolution=node'
-CMD ["node", "index.js"]
+CMD ["node", "app.js"] 

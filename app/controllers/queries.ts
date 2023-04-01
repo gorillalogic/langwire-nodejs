@@ -10,7 +10,7 @@ const Controller = {
             queries.push(item);
         }
 
-        res.status(200).render('queries/index', {
+        res.status(200).render('../views/queries/index', {
             pageTitle: 'Queries',
             queries: queries,
         }); 

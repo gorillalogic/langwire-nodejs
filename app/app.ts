@@ -1,5 +1,5 @@
 import path from 'path';
-import { __dirname } from './utils/common';
+import { cwd, __dirname } from './utils/common';
 
 import express, { Express } from 'express';
 import bodyParser from 'body-parser';
@@ -10,10 +10,13 @@ import QueryRoutes from './routes/queries';
 const app: Express = express();
 
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', path.join(__dirname(import.meta), "views"));
 
+// params helper
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+// static assets
+app.use(express.static(path.join(cwd, 'public')));
 
 // Resource Routes
 app.use("/queries", QueryRoutes);
