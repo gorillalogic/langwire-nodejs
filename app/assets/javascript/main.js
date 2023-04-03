@@ -4,10 +4,6 @@ window.Stimulus = Application.start();
 Stimulus.register("queries", class extends Controller {
     static targets = ["id","toggleGrammarTable", "toggleGraph", "toggleSimplified", "grammarTable"];
 
-    connect() {
-        console.log("[stimulus] connected!", this.element)
-    }
-
     toggleGrammarTable() {
         this.toggle(this.grammarTableTarget, this.toggleGrammarTableTarget)
     }

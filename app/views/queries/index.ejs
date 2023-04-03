@@ -8,7 +8,7 @@
     </h1>
     <main class="container mx-auto mt-10 px-5 flex flex-row space-x-5">
         <div class="flex flex-col w-full">
-            <% queries.forEach(query=> { %>
+            <% queries.forEach((query) => { %>
                 <div data-controller="queries" class="flex flex-col w-full border-solid border-2 border-orange-300 rounded-lg p-5 m-2 space-y-5">
                     <div class="flex flex-row w-full text-gray-400 text-xs space-x-5">
                         <label data-queries-target="id"><%= query.uuid %></label>
@@ -21,16 +21,20 @@
                     </div>
                     <div class="flex flex-row space-x-2">
                         <button data-queries-target="toggleGrammarTable" data-action="click->queries#toggleGrammarTable" class="btn-primary btn-primary-deselected">Show Grammar Table</button>
-                        <button data-queries-target="toggleGraph" class="btn-primary btn-primary-deselected">Show Graph</button>
-                        <button data-queries-target="toggleSimplified" class="btn-primary btn-primary-deselected">Show Simplified</button>
+                        <button data-queries-target="toggleGraph" data-action="click->queries#toggleGraph" class="btn-primary btn-primary-deselected">Show Graph</button>
+                        <button data-queries-target="toggleSimplified" data-action="click->queries#toggleSimplified" class="btn-primary btn-primary-deselected">Show Simplified</button>
                     </div>
                     <div class="flex flex-col w-full">
                         <div class="flex flex-row">
-                            <label data-queries-target="grammarTable" class="hidden"><%= query.output_conll %></label>
+                            <div data-queries-target="grammarTable" class="hidden">
+                                <%- include('./shared/grammarTable.ejs', { 
+                                    titleFields: titleFields, 
+                                    fieldValues: JSON.parse(query.output_conll) })%>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <% }); %>
+            <% }) %>
         </div>
     </main>
 

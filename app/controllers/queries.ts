@@ -13,6 +13,9 @@ const Controller = {
         res.status(200).render('../views/queries/index', {
             pageTitle: 'Queries',
             queries: queries,
+            titleFields: [
+                "id", "form", "lemma", "cpostag", "postag", "feats", "head", "deprel", "phead", "pdeprel"
+            ]
         }); 
     },
 }
