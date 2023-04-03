@@ -16,6 +16,9 @@ class Query {
     updated_at: Date; // Should be assigned to be equal to created_at on initialization;
 
     @attribute()
+    contents!: string;
+
+    @attribute()
     output_conll!: string;
 
     @attribute()

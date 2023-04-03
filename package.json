@@ -11,8 +11,8 @@
     "build": "npm run build:ts && npm run tailwind:css && npm run build:copy",
     "build:ts": "tsc -p .",
     "build:copy": "cp -R ./app/views ./build && mkdir -p ./build/public && cp -R ./public ./build/public",
-    "tailwind:css": "postcss app/assets/styles/tailwind.css -o public/styles/style.css",
-    "tailwind:css:watch": "postcss --watch app/assets/styles/tailwind.css -o public/styles/style.css",
+    "tailwind:css": "tailwind -i app/assets/styles/tailwind.css -o public/styles/style.css",
+    "tailwind:css:watch": "tailwind --watch -i app/assets/styles/tailwind.css -o public/styles/style.css",
     "clean": "rm -R ./build/*"
   },
   "repository": {
