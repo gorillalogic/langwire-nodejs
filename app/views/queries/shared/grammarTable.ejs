@@ -1,24 +1,22 @@
-<div class="flex-grow p-2 overflow-auto rounded-lg border border-gray-200">
-    <table class="table-auto min-w-full divide-y divide-gray-200 text-sm">
-        <div class="thead bg-gray-100">
+<table class="w-full table-auto divide-y divide-gray-200 text-sm">
+    <div class="thead bg-gray-100">
+        <tr>
+            <% titleFields.forEach((field)=> { %>
+                <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                    <%= (field ?? "" ).toUpperCase() %>
+                </th>
+                <% }) %>
+        </tr>
+    </div>
+    <tbody>
+        <% fieldValues.forEach((row)=> { %>
             <tr>
-                <% titleFields.forEach((field)=> { %>
-                    <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                        <%= (field ?? "" ).toUpperCase() %>
-                    </th>
+                <% row.forEach((col)=> { %>
+                    <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+                        <%= col %>
+                    </td>
                     <% }) %>
             </tr>
-        </div>
-        <tbody>
-            <% fieldValues.forEach((row)=> { %>
-                <tr>
-                    <% row.forEach((col)=> { %>
-                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-                            <%= col %>
-                        </td>
-                        <% }) %>
-                </tr>
-                <% }) %>
-        </tbody>
-    </table>
-</div>
+            <% }) %>
+    </tbody>
+</table>

@@ -1,4 +1,4 @@
-import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js";
+import { Application, Controller } from "./stimulus.js"
 window.Stimulus = Application.start();
 
 Stimulus.register("queries", class extends Controller {
